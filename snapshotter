@@ -8,7 +8,7 @@ file_count=$(ls $SNAPSHOT_ARCHIVE | wc -l)
 
 # create a new snapshot
 #tar -cJf "system_backup_$(date +"%d-%m-%Y").tar.xz" $SYSTEM_BACKUP_TARGET
-tar $TAR_OPTIONS $SNAPSHOT_NAME $SYSTEM_BACKUP_TARGET
+tar $TAR_OPTIONS --file=$SNAPSHOT_NAME $SYSTEM_BACKUP_TARGET
 
 # move snapshot to archive
 #mv "system_backup_$(date +"%d-%m-%Y").tar.xz" $SNAPSHOT_ARCHIVE

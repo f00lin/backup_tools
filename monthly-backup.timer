@@ -2,7 +2,6 @@
 Description=Run monthly backup script
 
 [Timer]
-OnBootSec=10min 
 OnCalendar=*-*-01 02:30:00
 Persistent=True
 Unit=monthly-backup.service

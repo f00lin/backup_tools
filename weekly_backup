@@ -3,27 +3,5 @@
 # source config file
 . backup_tools.config
 
-# backs up all of /home/james except those directories listed in excluded_from_rsync
-
-# --archive : symlinks/permissions etc are maintained
-# --human-readable : outputs byte numbers with K, M, G or T suffixes
-# --verbose : gives details on screen
-# --progress : displays %completion and transfer speed for each file
-# --numeric-ids : tells rsync not to attempt to translate UID <> userid or GID <> groupid, necessary to access files from recovery cd/dvd
-
-# --delete : removes from destination files that no longer exist at source
-# --delete-excluded : occasionally used to clear up previous unwanted copying of files
-
-# --dry-run : shows what *would* happen if the script were run
-# --log-file : specifies location where to record logs of transfer
-
-# --exclude-from : points to text file listing those directories to exclude or include in the backup
-
-#exclude file
-# - dir/ excludes the dir but not its contents
-# - dir/** excludes the contents of a dir
-# - dir/*** combines both the above into one command (rsync 2.6.7 or later) 
-
-#rsync --dry-run --archive --human-readable --verbose --progress --numeric-ids --delete --exclude-from=$HOME_EXCLUDED $HOMEDIR $WEEKLY_BACKUP_TARGET
-
+# perform backup
 rsync $RSYNC_OPTIONS --exclude-from=$HOME_EXCLUDED $HOMEDIR $WEEKLY_BACKUP_TARGET

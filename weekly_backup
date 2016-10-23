@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# source config file
+. backup_tools.config
+
 # backs up all of /home/james except those directories listed in excluded_from_rsync
 
 # --archive : symlinks/permissions etc are maintained
@@ -21,4 +24,6 @@
 # - dir/** excludes the contents of a dir
 # - dir/*** combines both the above into one command (rsync 2.6.7 or later) 
 
-rsync --archive --human-readable --verbose --progress --numeric-ids --delete --exclude-from=/home/james/SYNC/Arch\ Admin/misc/exclude_from_rsync /home/james/ /run/media/james/WeeklyBackup3TB/WeeklyBackup
+#rsync --dry-run --archive --human-readable --verbose --progress --numeric-ids --delete --exclude-from=$HOME_EXCLUDED $HOMEDIR $WEEKLY_BACKUP_TARGET
+
+rsync $RSYNC_OPTIONS --exclude-from=$HOME_EXCLUDED $HOMEDIR $WEEKLY_BACKUP_TARGET

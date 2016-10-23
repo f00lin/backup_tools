@@ -1,0 +1,6 @@
+[Unit]
+Description=Run weekly backup script
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /home/james/SYNC/bin/weekly_backup

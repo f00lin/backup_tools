@@ -1,0 +1,11 @@
+[Unit]
+Description=Run weekly backup script
+
+[Timer]
+OnBootSec=10min 
+OnCalendar=Mon *-*-* 01:00:00
+Persistent=True
+Unit=weekly-backup.service
+
+[Install]
+WantedBy=timers.target

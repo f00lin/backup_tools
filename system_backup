@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# system backup script
+
+# --archive : archive mode
+# --acls : preserve access control lists
+# --xattrs : preserve extended attributes
+# --verbose : lots of output
+# --human-readable : gives figures in MB, GB, TB, etc.
+
+# --dry-run : shows what *would* happen if the script were run
+# --log-file : location to record transfer logs
+
+# --exclude : directories not to backup
+
+rsync --archive --acls --xattrs --verbose --human-readable --exclude={"/home/*","/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / /run/media/james/WeeklyBackup3TB/SystemBackup

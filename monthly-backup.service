@@ -1,0 +1,6 @@
+[Unit]
+Description=Run monthly backup script
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /home/james/SYNC/bin/monthly_backup

@@ -1,26 +1,19 @@
 #!/bin/bash
 
-# the location of backup dir
-backup_dir="/home/james/LOCAL/github/TempWorkspace/backup"
+# source the config file
+. backup_tools.config
 
-# location of snapshot archive
-snap_arch="/home/james/LOCAL/github/TempWorkspace/archive"
-
-# the number of snapshots to keep 
-snapshots=3
-
-# the number of current backups
-file_count=$(ls $snap_arch | wc -l)
-
-
-# check the current number of snapshots 
-# and remove the oldest if limit reached
-if [[ $file_count > $snapshots ]]; then
-        rm "$snap_arch/$(ls $snap_arch | head -1)"
-fi
+# find out how many snapshots are currently saved
+file_count=$(ls $SNAPSHOT_ARCHIVE | wc -l)
 
 # create a new snapshot
-tar -cJf "system_backup_$(date +"%d-%m-%Y").tar.xz" $backup_dir
+tar -cJf "system_backup_$(date +"%d-%m-%Y").tar.xz" $SYSTEM_BACKUP_TARGET
 
 # move snapshot to archive
-mv "system_backup_$(date +"%d-%m-%Y").tar.xz" $snap_arch 
+mv "system_backup_$(date +"%d-%m-%Y").tar.xz" $SNAPSHOT_ARCHIVE
+
+# if more snapshots saved than expected (default=3),
+# then delete the oldest stored snapshot 
+if [[ $file_count > $SNAPSHOTS ]]; then
+        rm "$SNAPSHOT_ARCHIVE/$(ls $SNAPSHOT_ARCHIVE | head -1)"
+fi

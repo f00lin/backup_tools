@@ -3,4 +3,4 @@ Description=Run monthly system backup script
 
 [Service]
 Type=simple
-ExecStart=/bin/bash /usr/bin/system_backup
+ExecStart=/bin/bash /usr/bin/system_backup_weekly

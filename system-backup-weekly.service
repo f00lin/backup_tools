@@ -1,5 +1,5 @@
 [Unit]
-Description=Run monthly system backup script
+Description=Run weekly system backup script
 
 [Service]
 Type=simple

@@ -1,0 +1,10 @@
+[Unit]
+Description=Run monthly system backup script
+
+[Timer]
+OnCalendar=*-*-05 03:30:00
+Persistent=True
+Unit=system-backup-monthly.service
+
+[Install]
+WantedBy=timers.target

@@ -1,10 +1,10 @@
 [Unit]
-Description=Run monthly system backup script
+Description=Run weekly system backup script
 
 [Timer]
-OnCalendar=*-*-05 02:30:00
+OnCalendar=Tue *-*-* 02:30:00
 Persistent=True
-Unit=system-backup.service
+Unit=system-backup-weekly.service
 
 [Install]
 WantedBy=timers.target

@@ -2,7 +2,7 @@
 Description=Run monthly backup script
 
 [Timer]
-OnCalendar=*-*-01 02:30:00
+OnCalendar=*-*-01 03:30:00
 Persistent=True
 Unit=monthly-backup.service
 

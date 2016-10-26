@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ $EUID -ne 0 ]]; then
+   echo "system_backup_monthly must be run as root" 1>&2
+   exit 1
+fi
+
+# source config file
+. /etc/backup_tools/backup_tools.conf
+
+# perform backup
+rsync $RSYNC_OPTIONS_SYSTEM --exclude-from=$SYSTEM_EXCLUDED $SYSTEMDIR $MONTHLY_SYSTEM_BACKUP_TARGET
+

@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # source config file
-. backup_tools.config
+. /etc/backup_tools/backup_tools.conf
 
 # perform backup
 rsync $RSYNC_OPTIONS --exclude-from=$HOME_EXCLUDED $HOMEDIR $MONTHLY_BACKUP_TARGET 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # source the config file
-. backup_tools.config
+. /etc/backup_tools/backup_tools.conf
 
 # find out how many snapshots are currently saved
 file_count=$(ls $SNAPSHOT_ARCHIVE | wc -l)

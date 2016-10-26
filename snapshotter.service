@@ -1,6 +1,6 @@
 [Unit]
-Description=Create quarterly snapshot of system backup
+Description=Create snapshot of system backup
 
 [Service]
 Type=simple
-ExecStart=/bin/bash /home/james/SYNC/bin/snapshotter
+ExecStart=/bin/bash /usr/bin/snapshotter

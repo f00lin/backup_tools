@@ -1,6 +1,0 @@
-[Unit]
-Description=Create snapshot of system backup
-
-[Service]
-Type=simple
-ExecStart=/bin/bash /usr/bin/snapshotter

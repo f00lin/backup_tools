@@ -9,5 +9,5 @@ fi
 . /etc/backup_tools/backup_tools.conf
 
 # perform backup
-rsync $RSYNC_OPTIONS_SYSTEM --exclude-from=$SYSTEM_EXCLUDED $SYSTEMDIR $WEEKLY_SYSTEM_BACKUP_TARGET
+rsync $RSYNC_OPTIONS_SYSTEM --log-file=$WEEKLY_SYSTEM_BACKUP_LOG --exclude-from=$SYSTEM_EXCLUDED $SYSTEMDIR $WEEKLY_SYSTEM_BACKUP_TARGET
 

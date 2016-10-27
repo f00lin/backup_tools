@@ -4,4 +4,4 @@
 . /etc/backup_tools/backup_tools.conf
 
 # perform backup
-rsync $RSYNC_OPTIONS --exclude-from=$HOME_EXCLUDED $HOMEDIR $MONTHLY_BACKUP_TARGET 
+rsync $RSYNC_OPTIONS --log-file=$MONTHLY_BACKUP_LOG --exclude-from=$HOME_EXCLUDED $HOMEDIR $MONTHLY_BACKUP_TARGET 
